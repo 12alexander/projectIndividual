@@ -15,7 +15,7 @@ const UserShema = mongoose.Schema(
       require: true,
       minLength: 4,
     },
-    tipo: {
+    tipe: {
       type: String,
       enum: ["admin", "user"],
       default: "user",

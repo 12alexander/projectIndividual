@@ -1,14 +1,7 @@
-const {
-  registerService,
-  updateService,
-  getAllArtist,
-  findArtist,
-} = require("/models");
-
 const Artist = require("../models/artists");
 
-const registerService = ({ nombre, img, servicios, horario }) =>
-  Artist.create({ nombre, img, servicios, horario });
+const registerService = ({ name, img, services, schedules }) =>
+  Artist.create({ name, img, services, schedules });
 
 async function findArtist(field, value) {
   try {

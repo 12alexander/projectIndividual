@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 
-const Paquete = mongoose.Schema(
+const Package = mongoose.Schema(
   {
     title: {
       type: String,
       require: true,
     },
-    descripcion: {
+    description: {
       type: String,
     },
-    precio: {
+    price: {
       type: mongoose.Decimal128,
       required: true,
     },
@@ -19,4 +19,4 @@ const Paquete = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Paquete", Paquete);
+module.exports = mongoose.model("Package", Package);

@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const Artistas = mongoose.Schema(
+const Artist = mongoose.Schema(
   {
-    nombre: {
+    name: {
       type: String,
       require: true,
     },
@@ -11,7 +11,7 @@ const Artistas = mongoose.Schema(
       default:
         "https://res.cloudinary.com/dmorxcs1y/image/upload/v1649306884/166246_zzulcy.png",
     },
-    servicios: {
+    services: {
       type: String,
       enum: [
         "Corte de Cabello",
@@ -21,12 +21,12 @@ const Artistas = mongoose.Schema(
       ],
       default: "Corte de Cabello",
     },
-    horario: [
+    schedules: [
       {
-        dia: {
+        day: {
           type: String,
         },
-        horario: {
+        schedule: {
           type: String,
         },
       },
@@ -37,4 +37,4 @@ const Artistas = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Artistas", Artistas);
+module.exports = mongoose.model("Artist", Artist);

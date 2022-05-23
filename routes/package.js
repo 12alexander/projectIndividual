@@ -1,9 +1,9 @@
 const {
   register,
-  getArtists,
-  findArtist,
+  getPackages,
+  findPackage,
   update,
-} = require("../controllers/artist");
+} = require("../controllers/package");
 
 const api = require("express").Router();
 
@@ -19,9 +19,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 api.post("/create", upload.any("images"), register);
-api.get("/getData", getArtists);
+api.get("/getData", getPackages);
 api.post("/update", update);
 //api.delete("/remove", remove);
-api.post("/find", findArtist);
+api.post("/find", findPackage);
 
 module.exports = api;
