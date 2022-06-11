@@ -1,7 +1,7 @@
 const {
   registerService,
   getAllScheduleService,
-} = require("../services/shedule");
+} = require("../services/schedule");
 const fs = require("fs");
 
 const register = async (req, res) => {
