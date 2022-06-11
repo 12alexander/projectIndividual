@@ -3,7 +3,6 @@ const cors = require("cors");
 const User = require("./routes/user");
 const Package = require("./routes/package");
 const Artist = require("./routes/artist");
-const Schedule = require("./routes/schedule");
 const Reservation = require("./routes/reservation");
 const app = express();
 
