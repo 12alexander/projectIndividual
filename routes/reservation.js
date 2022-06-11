@@ -8,7 +8,7 @@ const isAuthenticated = require("../middleware/auth");
 
 const api = require("express").Router();
 
-api.post("/create", register);
+api.post("/", register);
 api.post("/findHour", findHour);
 api.get("/getData", isAuthenticated, getReservation);
 //api.delete("/remove", remove);

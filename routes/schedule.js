@@ -4,7 +4,7 @@ const isAuthenticated = require("../middleware/auth");
 
 const api = require("express").Router();
 
-api.post("/create", register);
+api.post("/", register);
 api.get("/getData", getAllSchedule);
 //api.post("/update", update);
 
