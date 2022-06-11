@@ -1,7 +1,7 @@
 const Package = require("../models/package");
 
-const registerService = ({ title, description, price }) =>
-  Package.create({ title, description, price });
+const registerService = ({ title, description, price, images }) =>
+  Package.create({ title, description, price, images });
 
 async function findPackage(field, value) {
   try {
@@ -13,7 +13,7 @@ async function findPackage(field, value) {
   }
 }
 
-async function getAllPackage() {
+async function getAllPackagesService() {
   return await Package.find();
 }
-module.exports = { registerService, getAllPackage, findPackage };
+module.exports = { registerService, getAllPackagesService, findPackage };

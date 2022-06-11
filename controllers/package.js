@@ -2,8 +2,8 @@ const cloudinary = require("cloudinary").v2;
 const {
   registerService,
   updateService,
-  getAllPackages,
-  findPackage,
+  getAllPackagesService,
+  findPackageService,
 } = require("../services/package");
 const fs = require("fs");
 
@@ -15,7 +15,11 @@ cloudinary.config({
 
 const register = async (req, res) => {
   try {
+    console.log("llego xD");
     const { files } = req;
+    console.log("------------------------- Inicio");
+    console.log(files);
+    console.log("------------------------- Fin");
     let arrayImg = [];
 
     if (files) {
@@ -64,14 +68,14 @@ const update = async (req, res) => {
 };
 
 async function getPackages(req, res) {
-  const packageRequest = await getPackages();
+  const packageRequest = await getAllPackagesService();
   res.status(200).send({ value: packageRequest });
 }
 
 async function findPackage(req, res) {
   try {
     const { id } = req.data;
-    const packageRequest = await findPackage(id);
+    const packageRequest = await findPackageService(id);
     res.status(201).send({ message: "found package", value: packageRequest });
   } catch (err) {
     res.status(400).send({

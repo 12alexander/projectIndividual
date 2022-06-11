@@ -6,29 +6,18 @@ const Artist = mongoose.Schema(
       type: String,
       require: true,
     },
-    img: {
+    images: {
       type: String,
       default:
         "https://res.cloudinary.com/dmorxcs1y/image/upload/v1649306884/166246_zzulcy.png",
     },
-    services: {
-      type: String,
-      enum: [
-        "Corte de Cabello",
-        "Arreglo de Barba",
-        "Corte de Cabello y Arreglo de Barba",
-        "Diseños",
-      ],
-      default: "Corte de Cabello",
-    },
+    services: [],
     schedules: [
       {
         day: {
           type: String,
         },
-        schedule: {
-          type: String,
-        },
+        schedule: [],
       },
     ],
   },

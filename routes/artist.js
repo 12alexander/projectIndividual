@@ -5,6 +5,8 @@ const {
   update,
 } = require("../controllers/artist");
 
+const isAuthenticated = require("../middleware/auth");
+
 const api = require("express").Router();
 
 const multer = require("multer");
@@ -18,10 +20,10 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-api.post("/create", upload.any("images"), register);
-api.get("/getData", getArtists);
-api.post("/update", update);
+api.post("/create", isAuthenticated, upload.any("images"), register);
+api.get("/getData", isAuthenticated, getArtists);
+api.post("/update", isAuthenticated, update);
 //api.delete("/remove", remove);
-api.post("/find", findArtist);
+api.post("/find", isAuthenticated, findArtist);
 
 module.exports = api;

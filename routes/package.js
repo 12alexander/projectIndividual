@@ -3,7 +3,8 @@ const {
   getPackages,
   findPackage,
   update,
-} = require("../controllers/package");
+} = require("../controllers/package.js");
+const isAuthenticated = require("../middleware/auth");
 
 const api = require("express").Router();
 

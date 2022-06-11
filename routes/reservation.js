@@ -1,27 +1,17 @@
 const {
   register,
   getReservation,
-  findReservation,
-  update,
+  findHour,
 } = require("../controllers/reservation");
+
+const isAuthenticated = require("../middleware/auth");
 
 const api = require("express").Router();
 
-const multer = require("multer");
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  },
-});
-const upload = multer({ storage });
-
-api.post("/create", upload.any("images"), register);
-api.get("/getData", getReservation);
-api.post("/update", update);
+api.post("/create", register);
+api.post("/findHour", findHour);
+api.get("/getData", isAuthenticated, getReservation);
 //api.delete("/remove", remove);
-api.post("/find", findReservation);
+//api.post("/find", isAuthenticated, findReservation);
 
 module.exports = api;

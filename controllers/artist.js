@@ -1,9 +1,8 @@
 const cloudinary = require("cloudinary").v2;
 const {
   registerService,
-  updateService,
   getAllArtist,
-  findArtist,
+  findArtistService,
 } = require("../services/artist");
 const fs = require("fs");
 
@@ -24,9 +23,11 @@ const register = async (req, res) => {
 
     const artists = {
       ...req.body,
-      images: arrayImg,
+      images: arrayImg[0],
     };
-
+    console.log("---------------");
+    console.log(artists);
+    console.log("---------------");
     const artistRequest = await registerService(artists);
     return res.status(200).send({
       message: "Successfully registered artist",
@@ -85,6 +86,8 @@ const pushImages = async (files) => {
   for (const el of files) {
     try {
       const { url } = await cloudinary.uploader.upload(el.path);
+      console.log("*******************");
+      console.log(url);
       arrayImages.push(url);
     } catch (err) {
       console.log(err);

@@ -1,9 +1,9 @@
-const Artist = require("../models/artists");
+const Artist = require("../models/artist");
 
-const registerService = ({ name, img, services, schedules }) =>
-  Artist.create({ name, img, services, schedules });
+const registerService = ({ name, images, services, schedules }) =>
+  Artist.create({ name, images, services, schedules });
 
-async function findArtist(field, value) {
+async function findArtistService(field, value) {
   try {
     const query = { [field]: value };
     return await Artist.find(query);
@@ -16,4 +16,8 @@ async function findArtist(field, value) {
 async function getAllArtist() {
   return await Artist.find();
 }
-module.exports = { registerService, updateService, getAllArtist, findArtist };
+module.exports = {
+  registerService,
+  getAllArtist,
+  findArtistService,
+};

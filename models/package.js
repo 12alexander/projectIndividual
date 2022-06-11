@@ -13,6 +13,7 @@ const Package = mongoose.Schema(
       type: mongoose.Decimal128,
       required: true,
     },
+    images: [],
   },
   {
     timestamps: true,

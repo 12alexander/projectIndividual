@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 const Reservation = mongoose.Schema(
   {
+    user: {
+      type: String,
+      require: true,
+    },
     idPackage: {
       type: String,
       require: true,
@@ -12,7 +16,6 @@ const Reservation = mongoose.Schema(
     },
     day: {
       type: String,
-      require: true,
     },
     time: {
       type: String,
@@ -24,4 +27,4 @@ const Reservation = mongoose.Schema(
   }
 );
 
-module.exports = model("Reservation", Reservation);
+module.exports = mongoose.model("Reservation", Reservation);
