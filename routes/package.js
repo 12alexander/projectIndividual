@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-api.post("/", upload.any("images"), register);
+api.post("/create", upload.any("images"), register);
 api.get("/getData", getPackages);
 api.post("/update", update);
 //api.delete("/remove", remove);

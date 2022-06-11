@@ -20,7 +20,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-api.post("/", isAuthenticated, upload.any("images"), register);
+api.post("/create", isAuthenticated, upload.any("images"), register);
 api.get("/getData", isAuthenticated, getArtists);
 api.post("/update", isAuthenticated, update);
 //api.delete("/remove", remove);
