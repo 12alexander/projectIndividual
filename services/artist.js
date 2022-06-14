@@ -13,6 +13,12 @@ async function findArtistService(field, value) {
   }
 }
 
+async function removeArtistService(id) {
+  console.log("mi id es el que se muestra servicio");
+  console.log(id);
+  return await Artist.deleteOne({ _id: id });
+}
+
 async function getAllArtist() {
   return await Artist.find();
 }
@@ -20,4 +26,5 @@ module.exports = {
   registerService,
   getAllArtist,
   findArtistService,
+  removeArtistService,
 };

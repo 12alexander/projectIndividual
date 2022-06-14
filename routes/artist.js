@@ -3,6 +3,7 @@ const {
   getArtists,
   findArtist,
   update,
+  remove,
 } = require("../controllers/artist");
 
 const isAuthenticated = require("../middleware/auth");
@@ -20,10 +21,10 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-api.post("/create", isAuthenticated, upload.any("images"), register);
-api.get("/getData", isAuthenticated, getArtists);
+api.post("/create", upload.any("images"), register);
+api.get("/getData", getArtists);
 api.post("/update", isAuthenticated, update);
-//api.delete("/remove", remove);
+api.post("/remove", remove);
 api.post("/find", isAuthenticated, findArtist);
 
 module.exports = api;

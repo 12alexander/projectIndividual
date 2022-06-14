@@ -2,7 +2,7 @@ const cloudinary = require("cloudinary").v2;
 const {
   registerService,
   getAllArtist,
-  findArtistService,
+  removeArtistService,
 } = require("../services/artist");
 const fs = require("fs");
 
@@ -81,6 +81,18 @@ async function findArtist(req, res) {
   }
 }
 
+async function remove(req, res) {
+  try {
+    const { id } = req.body;
+    await removeArtistService(id);
+    res.status(200).send({ message: "Delete Artist Sucess" });
+  } catch (err) {
+    res.status(400).send({
+      message: `incomplete removal. ${err}`,
+    });
+  }
+}
+
 const pushImages = async (files) => {
   const arrayImages = new Array();
   for (const el of files) {
@@ -98,4 +110,4 @@ const pushImages = async (files) => {
   return arrayImages;
 };
 
-module.exports = { register, getArtists, findArtist, update };
+module.exports = { register, getArtists, findArtist, update, remove };
