@@ -15,11 +15,8 @@ cloudinary.config({
 
 const register = async (req, res) => {
   try {
-    console.log("llego xD");
+
     const { files } = req;
-    console.log("------------------------- Inicio");
-    console.log(files);
-    console.log("------------------------- Fin");
     let arrayImg = [];
 
     if (files) {

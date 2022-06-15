@@ -2,17 +2,16 @@
 const nodemailer = require("nodemailer");
 const sgMail = require("@sendgrid/mail");
 async function sendEmail(data) {
-  console.log("llego data");
   console.log(data);
   sgMail.setApiKey(
-    "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"
+    "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"
   );
 
   const msg = {
     to: data.user,
-    from: "alex18escorpio@gmail.com",
+    from: "alexandermarquezlamadrid@gmail.com",
     subject: "Reserva Mostacho",
-    template_id: "d-9b446687aa3a4a30bd3c324365083de5",
+    template_id: "d-92c9b87a509445868aab06c2502ed2b3",
     dynamic_template_data: {
       fecha: data.day,
       user: data.user,
@@ -32,8 +31,6 @@ async function sendEmail(data) {
 }
 
 async function main() {
-  // Generate test SMTP service account from ethereal.email
-  // Only needed if you don't have a real mail account for testing
   let testAccount = await nodemailer.createTestAccount();
 
   // create reusable transporter object using the default SMTP transport
@@ -43,7 +40,7 @@ async function main() {
     secure: true, // true for 465, false for other ports
     auth: {
       user: "alex18escorpio@gmail.com", // generated ethereal user
-      pass: "wihfvudmamzbghds", // generated ethereal password
+      pass: "wbtrvckeozvmenek", // generated ethereal password
     },
   });
 

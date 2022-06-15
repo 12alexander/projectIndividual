@@ -8,8 +8,6 @@ async function getAllReservation() {
 }
 
 async function findHourService({ dataPackage, dataArtist, day }) {
-  console.log("llego a servicioo");
-  console.log(dataPackage, dataArtist, day);
   return await Reservation.find({
     idPackage: dataPackage,
     idArtist: dataArtist,

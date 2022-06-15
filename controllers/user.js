@@ -1,7 +1,6 @@
 const { loginService, registerService } = require("../services/user");
 
 const login = async (req, res) => {
-  console.log("login controlador");
   try {
     const { message, code, type } = await loginService(req.body);
     return res.status(code).send({ message, type });

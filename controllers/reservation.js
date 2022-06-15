@@ -8,6 +8,7 @@ const { sendEmail } = require("../utils/email");
 
 const register = async (req, res) => {
   try {
+    console.log(req.body);
     const reservation = await registerService(req.body);
     sendEmail(req.body);
     return res.status(200).send({
@@ -29,8 +30,7 @@ async function getReservation(req, res) {
 
 async function findHour(req, res) {
   const hours = await findHourService(req.body);
-  console.log("controlador --------");
-  console.log(hours);
+
   res.status(200).send({ value: hours });
 }
 

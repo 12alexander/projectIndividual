@@ -25,9 +25,7 @@ const register = async (req, res) => {
       ...req.body,
       images: arrayImg[0],
     };
-    console.log("---------------");
-    console.log(artists);
-    console.log("---------------");
+  
     const artistRequest = await registerService(artists);
     return res.status(200).send({
       message: "Successfully registered artist",
@@ -98,8 +96,7 @@ const pushImages = async (files) => {
   for (const el of files) {
     try {
       const { url } = await cloudinary.uploader.upload(el.path);
-      console.log("*******************");
-      console.log(url);
+
       arrayImages.push(url);
     } catch (err) {
       console.log(err);
