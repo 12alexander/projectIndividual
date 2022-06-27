@@ -5,11 +5,12 @@
   "main": "index.js",
   "engines": {
     "node": "12.11.1"
-    },
+  },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:test": "node index.js",
+    "test": "jest --detectOpenHandles"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +28,8 @@
     "nodemailer": "^6.7.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "jest": "^28.1.1",
+    "nodemon": "^2.0.16",
+    "supertest": "^6.2.3"
   }
 }
