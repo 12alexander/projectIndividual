@@ -12,7 +12,6 @@ async function findArtistService(field, value) {
     return err;
   }
 }
-
 async function removeArtistService(id) {
   return await Artist.deleteOne({ _id: id });
 }
