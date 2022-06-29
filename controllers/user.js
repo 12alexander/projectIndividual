@@ -5,7 +5,7 @@ const login = async (req, res) => {
     const { message, code, type } = await loginService(req.body);
     return res.status(code).send({ message, type });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     res
       .status(400)
       .send({ message: "incorrect information", errors: error.message });
