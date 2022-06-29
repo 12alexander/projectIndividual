@@ -1,9 +1,8 @@
 const cloudinary = require("cloudinary").v2;
 const {
   registerService,
-  updateService,
   getAllPackagesService,
-  findPackageService,
+  removePackageService,
 } = require("../services/package");
 const fs = require("fs");
 
@@ -15,7 +14,6 @@ cloudinary.config({
 
 const register = async (req, res) => {
   try {
-
     const { files } = req;
     let arrayImg = [];
 
@@ -69,14 +67,14 @@ async function getPackages(req, res) {
   res.status(200).send({ value: packageRequest });
 }
 
-async function findPackage(req, res) {
+async function remove(req, res) {
   try {
-    const { id } = req.data;
-    const packageRequest = await findPackageService(id);
-    res.status(201).send({ message: "found package", value: packageRequest });
+    const { id } = req.body;
+    await removePackageService(id);
+    res.status(200).send({ message: "Delete Package Sucess" });
   } catch (err) {
     res.status(400).send({
-      message: `package not found. ${err}`,
+      message: `incomplete remove. ${err}`,
     });
   }
 }
@@ -96,4 +94,4 @@ const pushImages = async (files) => {
   return arrayImages;
 };
 
-module.exports = { register, getPackages, findPackage, update };
+module.exports = { register, getPackages, update, remove };

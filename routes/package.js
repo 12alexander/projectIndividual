@@ -1,8 +1,8 @@
 const {
   register,
   getPackages,
-  findPackage,
   update,
+  remove,
 } = require("../controllers/package.js");
 const isAuthenticated = require("../middleware/auth");
 
@@ -22,7 +22,6 @@ const upload = multer({ storage });
 api.post("/create", isAuthenticated, upload.any("images"), register);
 api.get("/getData", getPackages);
 api.post("/update", update);
-//api.delete("/remove", remove);
-api.post("/find", findPackage);
+api.post("/remove", remove);
 
 module.exports = api;
