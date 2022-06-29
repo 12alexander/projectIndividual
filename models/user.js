@@ -43,7 +43,7 @@ UserShema.post("save", function (error, doc, next) {
 
 UserShema.methods.getToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_KEY_SECRET, {
-    expiresIn: process.env.JWT_eXPIRE,
+    expiresIn: process.env.JWT_EXPIRE,
   });
 };
 
